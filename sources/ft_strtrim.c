@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-int		trimset(char const *set, char c)
+static int	trimset(char const *set, char c)
 {
 	int		len;
 
@@ -25,7 +25,7 @@ int		trimset(char const *set, char c)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char		*ft_strtrim(char const *s1, char const *set)
 {
 	char	*res;
 	int		i;

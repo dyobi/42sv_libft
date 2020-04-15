@@ -12,7 +12,7 @@
 
 #include "../includes/libft.h"
 
-int		wordlen(char const *s, char c)
+static int	wordlen(char const *s, char c)
 {
 	int	i;
 
@@ -27,7 +27,7 @@ int		wordlen(char const *s, char c)
 	return (i);
 }
 
-int		amount(char const *s, char c)
+static int	amount(char const *s, char c)
 {
 	int		i;
 
