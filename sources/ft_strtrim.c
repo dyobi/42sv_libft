@@ -37,9 +37,10 @@ char		*ft_strtrim(char const *s1, char const *set)
 	j = ft_strlen(s1);
 	while (trimset(set, s1[i]))
 		i++;
+	if (i == j)
+		return (ft_strdup(""));
 	while (trimset(set, s1[j - 1]))
 		j--;
-	j = (i > j) ? i : j;
 	if (!(res = ft_strnew(j - i)))
 		return (NULL);
 	ft_strncpy(res, s1 + i, j - i);

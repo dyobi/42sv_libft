@@ -48,7 +48,7 @@ static int	amount(char const *s, char c)
 	return (i);
 }
 
-char	**ft_split(char const *s, char c)
+char		**ft_split(char const *s, char c)
 {
 	int		ylen;
 	int		i;
