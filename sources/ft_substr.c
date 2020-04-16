@@ -15,16 +15,21 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*tmp;
+	unsigned int	len_s;
 	unsigned int	i;
 
 	if (s)
 	{
-		if (!(tmp = ft_strnew(len)))
+		len_s = ft_strlen(s);
+		len = (len_s - start < len) ? len_s - start : len;
+		if (len_s < start)
+			return (ft_strdup(""));
+		else if (!(tmp = ft_strnew(len)))
 			return (NULL);
 		i = 0;
-		while (len--)
+		while (i < len)
 			tmp[i++] = s[start++];
 		return (tmp);
 	}
-	return (0);
+	return (NULL);
 }
