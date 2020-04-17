@@ -22,11 +22,11 @@ char	*ft_strcut(char *s, char c)
 		return (NULL);
 	index = 0;
 	len = ft_strlen(s);
-	while (s[i])
+	while (s[index])
 	{
-		if (s[i] == c)
+		if (s[index] == c)
 		{
-			i++;
+			index++;
 			if (!(res = ft_strnew(len + index)))
 				return (NULL);
 			res = ft_strcpy(res, &(s[index]));

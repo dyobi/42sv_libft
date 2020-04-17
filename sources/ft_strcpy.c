@@ -22,6 +22,6 @@ char	*ft_strcpy(char *dst, const char *src)
 		dst[i] = src[i];
 		i++;
 	}
-	dst[i] = NULL;
+	dst[i] = '\0';
 	return (dst);
 }
