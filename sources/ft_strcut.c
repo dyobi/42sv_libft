@@ -1,33 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcut.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kilkim <kilkim@student.42.us.org>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/04/15 00:44:13 by kilkim            #+#    #+#             */
-/*   Updated: 2020/04/15 07:47:00 by kilkim           ###   ########.fr       */
+/*   Created: 2020/04/16 18:18:25 by kilkim            #+#    #+#             */
+/*   Updated: 2020/04/16 18:18:31 by kilkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+char	*ft_strcut(char *s, char c)
 {
-	size_t	i;
-	size_t	len;
+	char	*res;
+	int		len;
+	int		index;
 
-	if (!dst || !src)
-		return (0);
-	i = 0;
-	len = ft_strlen(src);
-	if (!dstsize)
-		return (len);
-	while (src[i] && i < dstsize - 1)
+	if (!s)
+		return (NULL);
+	index = 0;
+	len = ft_strlen(s);
+	while (s[i])
 	{
-		dst[i] = src[i];
-		i++;
+		if (s[i] == c)
+		{
+			i++;
+			if (!(res = ft_strnew(len + index)))
+				return (NULL);
+			res = ft_strcpy(res, &(s[index]));
+			free(s);
+			return (res);
+		}
+		index++;
 	}
-	dst[i] = NULL;
-	return (len);
+	free(s);
+	return (ft_strnew(0));
 }
